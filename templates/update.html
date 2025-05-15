@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Update
+{% endblock title %}
+
+{% block body %}
+  
+  <!-- Update Todo Form Section -->
+  <div class="container my-4">
+    <h2>Update Todo</h2>
+    <!-- Form for updating existing todo -->
+    <form action="/update/{{ todo.sno }}" method="POST">
+      <!-- Todo Title Input -->
+      <div class="mb-3">
+        <label for="title" class="form-label">Todo Title</label>
+        <!-- Pre-fill the title with the current value -->
+        <input type="text" class="form-control" name="title" id="title" value="{{ todo.title }}" required>
+      </div>
+      
+      <!-- Todo Description Input -->
+      <div class="mb-3">
+        <label for="desc" class="form-label">Todo Description</label>
+        <!-- Pre-fill the description with the current value -->
+        <textarea class="form-control" name="desc" id="desc" rows="3" required>{{ todo.desc }}</textarea>
+      </div>
+      
+      <!-- Submit Button for updating the todo -->
+      <button type="submit" class="btn btn-outline-dark">Update Todo</button>
+      
+      <!-- Cancel Button to go back to home page -->
+      <a href="/" class="btn btn-outline-secondary">Cancel</a>
+    </form>
+  </div>
+
+{% endblock body %}
